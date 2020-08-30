@@ -82,12 +82,12 @@ for i=1,3 do
 end
 
 local shadowRotationCheck = {}
-local shadowRotationSpells = {"Mind Flay", "Shadow Word: Pain", "Vampiric Touch", "Mind Blast", "Shadow Word: Death"}
+local shadowRotationSpells = {GetSpellInfo(15407), GetSpellInfo(589), GetSpellInfo(34914), GetSpellInfo(8092), GetSpellInfo(32379)} -- retrieves client names of MF, SW:P, VT, MB, SW:D
 local ShadowUpdateFrame = CreateFrame("Frame")
 ShadowUpdateFrame:SetScript("OnUpdate", function(self, elapsed)
 	for k=1,2 do -- cooldowns
 		local shadowRotationSpell = shadowRotationSpells[3+k]
-		if GetSpellCooldown(shadowRotationSpell) ~= GetSpellCooldown("Inner Fire") or _G["ShadowRotationCooldownFont"..k]:GetText() ~= "" then
+		if GetSpellCooldown(shadowRotationSpell) ~= GetSpellCooldown(GetSpellInfo(588)) or _G["ShadowRotationCooldownFont"..k]:GetText() ~= "" then
 			local start, dur = GetSpellCooldown(shadowRotationSpell)
 			_G["ShadowRotationCooldown"..k]:SetCooldown(start, dur)
 			if dur > 2 then

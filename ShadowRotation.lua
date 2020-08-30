@@ -29,6 +29,7 @@ for i=1,3 do
 		spellTexture:SetAllPoints()
 		local spellCooldown = CreateFrame("Cooldown", "ShadowRotationCooldown"..i, spellFrame, "CooldownFrameTemplate")
 		spellCooldown:SetAllPoints()
+		spellCooldown.noCooldownCount = true -- makes sure OmniCC doesn't ruin our pretty cooldown frame
 		local spellCooldownFrame = CreateFrame("Frame")
 		spellCooldownFrame:SetFrameLevel(4)
 		local spellCooldownFont = spellCooldownFrame:CreateFontString("ShadowRotationCooldownFont"..i, "ARTWORK", "GameFontNormal")

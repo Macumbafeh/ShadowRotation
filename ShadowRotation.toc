@@ -1,0 +1,5 @@
+## Interface: 20400
+## Title: ShadowRotation
+## Author: Oldsalt
+## Notes: Helps you focus on your main spells as a Shadow Priest
+ShadowRotation.lua

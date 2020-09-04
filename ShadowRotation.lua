@@ -35,7 +35,7 @@ for i=1,3 do
 		local spellCooldownFont = spellCooldownFrame:CreateFontString("ShadowRotationCooldownFont"..i, "ARTWORK", "GameFontNormal")
 		spellCooldownFont:SetPoint("CENTER", spellFrame)
 		spellCooldownFont:SetFont("Fonts\\FRIZQT__.TTF", 16, "THICKOUTLINE")
-		spellCooldownFont:SetTextColor(1, 0, 0)
+		spellCooldownFont:SetTextColor(1, 0.2, 0.2)
 		spellCooldownFont:SetText("")
 
 		if i == 1 then
@@ -88,7 +88,7 @@ local ShadowUpdateFrame = CreateFrame("Frame")
 ShadowUpdateFrame:SetScript("OnUpdate", function(self, elapsed)
 	for k=1,2 do -- cooldowns
 		local shadowRotationSpell = shadowRotationSpells[3+k]
-		if GetSpellCooldown(shadowRotationSpell) ~= GetSpellCooldown(GetSpellInfo(588)) or _G["ShadowRotationCooldownFont"..k]:GetText() ~= "" then
+		if GetSpellCooldown(shadowRotationSpell) ~= nil and (GetSpellCooldown(shadowRotationSpell) ~= GetSpellCooldown(GetSpellInfo(588)) or _G["ShadowRotationCooldownFont"..k]:GetText() ~= "") then
 			local start, dur = GetSpellCooldown(shadowRotationSpell)
 			_G["ShadowRotationCooldown"..k]:SetCooldown(start, dur)
 			if dur > 2 then
